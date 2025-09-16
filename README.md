@@ -4,11 +4,8 @@
 ## AIM
 To develop a Django application to store and retrieve data from a Car Inventory Database using Object Relational Mapping(ORM).
 
-## ENTITY RELATIONSHIP DIAGRAM
-
-
-
 ## DESIGN STEPS
+
 
 ### STEP 1:
 Clone the problem from GitHub
@@ -23,12 +20,28 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+from django.db import models
 
+# Create your models here.
+from django.db import models
+from django.contrib import admin
+class Movie(models.Model):
+    title = models.CharField(max_length=255, help_text="Movie Title")
+    director = models.CharField(max_length=100, help_text="Director Name")
+    release_date = models.DateField(help_text="Release Date")
+    genre = models.CharField(max_length=50, help_text="Movie Genre")
+    rating = models.DecimalField(max_digits=3, decimal_places=1, help_text="Movie Rating (e.g., 8.5)")
+    duration = models.IntegerField(help_text="Duration in Minutes")
+
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ('title', 'director', 'release_date', 'genre', 'rating', 'duration')*
+```
 
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
+![alt text](<Screenshot (153).png>)
 
 
 ## RESULT
